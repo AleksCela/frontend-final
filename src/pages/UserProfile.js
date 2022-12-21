@@ -21,6 +21,7 @@ export default function UserProfile() {
         } else {
             console.log("Could not update email!");
         }
+        form.reset();
     }
     async function changePassword(event) {
         event.preventDefault();
@@ -42,6 +43,7 @@ export default function UserProfile() {
         } else {
             console.log(response);
         }
+        form.reset();
     }
 
     return (
