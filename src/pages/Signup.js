@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Signup() {
@@ -6,6 +6,13 @@ export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const emailLogged = localStorage.getItem('email');
+    if (emailLogged) {
+      navigate("/trips")
+    } else { };
+  },)
 
   const handleSubmit = async (event) => {
     event.preventDefault();
