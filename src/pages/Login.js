@@ -30,24 +30,24 @@ export default function Login() {
   }
 
   useEffect(() => {
-    const emailLogged = localStorage.getItem('email');
-    if (emailLogged) {
+    const id_logged = localStorage.getItem('user_id');
+    if (id_logged) {
       navigate("/trips")
     } else { };
   },)
 
   return (
-    
+
     <div className="bg-light w-100 h-100 position-absolute d-inline-block ">
       <NavbarSignupLogin />
       <div className="container-md bg-white rounded-3 my-5 p-4">
-        <h1 className="text-center">Log In</h1>      
-        <form class="form-horizontal row g-2" id="loginForm" onSubmit={handleSubmit}>
+        <h1 className="text-center">Log In</h1>
+        <form className="form-horizontal row g-2" id="loginForm" onSubmit={handleSubmit}>
           <div className="col-10 offset-1 col-lg-4 offset-lg-4 div-wrapper">
             <label className="form-label" htmlFor="form3Example1cg">Email</label>
             <input onChange={(event) =>
               setEmail(event.target.value)
-            } type="text" id="form3Example1cg" name="email" className="form-control form-control-lg" /> 
+            } type="text" id="form3Example1cg" name="email" className="form-control form-control-lg" />
           </div>
           <div className="col-10 offset-1 col-lg-4 offset-lg-4 div-wrapper">
             <label className="form-label" htmlFor="form3Example4cg">Password</label>
