@@ -22,22 +22,22 @@ export default function Trips() {
         } else {
             getTrips()
         }
-    },[])
+    }, [])
 
-    function updateTrip (event) {
-        const update_id = event.currentTarget.id; 
+    function updateTrip(event) {
+        const update_id = event.currentTarget.id;
         window.localStorage.setItem("trip_id", update_id);
         navigate('/update-trip');
     }
 
-    
-    async function deleteTrip (event) {
-        const delete_id = event.currentTarget.id; 
+
+    async function deleteTrip(event) {
+        const delete_id = event.currentTarget.id;
         await fetch(`http://localhost:4000/api/trips/${delete_id}`, {
             method: 'DELETE'
         })
         window.alert("Trip deleted!");
-        navigate("/trips");
+        getTrips();
     }
 
     function renderTrips() {
@@ -53,8 +53,9 @@ export default function Trips() {
             </tr>
         })
     }
-    function navigateToTrip () {
-        navigate('/create-trips'); 
+
+    function navigateToTrip() {
+        navigate('/create-trips');
     }
 
     return (
@@ -62,7 +63,7 @@ export default function Trips() {
             <Navbar />
             <div className="container bg-light">
                 <div className="col-md-12 text-center ">
-                    <button className="btn-lg btn-secondary rounded-pill m-4" type="button" id="btn"> <i class="bi bi-map p-2"></i>Map</button>
+                    <button onClick={() => navigate('/trips-map')} className="btn-lg btn-secondary rounded-pill m-4" type="button" id="btn"> <i class="bi bi-map p-2"></i>Map</button>
                     <button className="btn-lg btn-primary rounded-pill" type="button" id="btn"> <i class="bi bi-table p-2"></i>Table</button>
                 </div>
             </div>
@@ -70,21 +71,21 @@ export default function Trips() {
                 <h1> My trips</h1>
                 <button onClick={navigateToTrip}> Create trip!</button>
                 <table className="table container bg-white" id="table">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Destination</th>
-                        <th scope="col">Days</th>
-                        <th scope="col">Rating</th>
-                    </tr>
-                </thead>
-                <tbody id="tableBody">
-                    {renderTrips()}
-                </tbody>
-            </table>
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Destination</th>
+                            <th scope="col">Days</th>
+                            <th scope="col">Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        {renderTrips()}
+                    </tbody>
+                </table>
             </div>
-            
+
         </div>
     )
 }

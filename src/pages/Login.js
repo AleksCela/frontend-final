@@ -34,7 +34,7 @@ export default function Login() {
     if (id_logged) {
       navigate("/trips")
     } else { };
-  },)
+  }, [])
 
   return (
 
