@@ -22,9 +22,23 @@ export default function Trips() {
         } else {
             getTrips()
         }
-    }, [])
+    },[])
 
+    function updateTrip (event) {
+        const update_id = event.currentTarget.id; 
+        window.localStorage.setItem("trip_id", update_id);
+        navigate('/update-trip');
+    }
 
+    
+    async function deleteTrip (event) {
+        const delete_id = event.currentTarget.id; 
+        await fetch(`http://localhost:4000/api/trips/${delete_id}`, {
+            method: 'DELETE'
+        })
+        window.alert("Trip deleted!");
+        navigate("/trips");
+    }
 
     function renderTrips() {
         return trips.map(({ id, date, destination, description, days, rating }) => {
@@ -34,10 +48,13 @@ export default function Trips() {
                 <td>{destination}</td>
                 <td>{days}</td>
                 <td>{rating}</td>
-                <td><i id={id} class="bi bi-pencil"></i></td>
-                <td><i id={id} class="bi bi-trash"></i></td>
+                <td><a onClick={updateTrip} id={id}><i class="bi bi-pencil"></i></a></td>
+                <td><a onClick={deleteTrip} id={id}><i class="bi bi-trash"></i></a></td>
             </tr>
         })
+    }
+    function navigateToTrip () {
+        navigate('/create-trips'); 
     }
 
     return (
@@ -49,7 +66,10 @@ export default function Trips() {
                     <button className="btn-lg btn-primary rounded-pill" type="button" id="btn"> <i class="bi bi-table p-2"></i>Table</button>
                 </div>
             </div>
-            <table className="table container bg-white" id="table">
+            <div className="container bg-white">
+                <h1> My trips</h1>
+                <button onClick={navigateToTrip}> Create trip!</button>
+                <table className="table container bg-white" id="table">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
@@ -63,6 +83,8 @@ export default function Trips() {
                     {renderTrips()}
                 </tbody>
             </table>
+            </div>
+            
         </div>
     )
 }

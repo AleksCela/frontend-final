@@ -3,6 +3,8 @@ import Signup from "./pages/Signup.js";
 import Login from "./pages/Login.js";
 import Trips from "./pages/Trips.js";
 import UserProfile from "./pages/UserProfile.js";
+import CreateTrip from "./pages/CreateTrip.js";
+import UpdateTrip from "./pages/UpdateTrip.js";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/user-profile" element={<UserProfile />} />
         <Route path="/trips" element={<Trips />} />
+        <Route path="/create-trips" element={<CreateTrip />} />
+        <Route path="/update-trip" element={<UpdateTrip />} />
       </Routes>
     </BrowserRouter>
   );
