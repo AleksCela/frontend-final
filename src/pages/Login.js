@@ -58,7 +58,7 @@ export default function Login() {
               match!</p> : null}
           </div>
           <div className="d-flex justify-content-center">
-            <button type="submit" className="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Log
+            <button type="submit" className="btn btn-dark btn-block btn-lg">Log
               In</button>
           </div>
           <p className="text-center text-muted mt-5 mb-0">Dont have an account?<Link to={"/sign-up"}>Sign Up</Link></p>

@@ -66,10 +66,10 @@ export default function CreateTrip() {
         <div className="bg-light w-100 h-100 position-absolute d-inline-block ">
             <Navbar />
             <div className="container-md bg-white rounded-3 my-5 p-4">
-                <h1 className="text-center">NEW TRIP</h1>
+                <h2 className="text-center">NEW TRIP</h2>
                 <p className="alert alert-danger col-md-4 offset-lg-4 text-center">You must fill all mandatory fields!</p>
                 <form onSubmit={CreateTrip} className="row g-3">
-                    <div className="col-10 offset-1 col-lg-4 offset-lg-4 div-wrapper">
+                    <div className="col-md-4 col-lg-4 offset-lg-4">
                         <label htmlFor="inputDate" className="form-label">Date*</label>
                         <input type="date" name="date" className="form-control" id="input-date" placeholder="2022-10-20" required />
                     </div>
@@ -81,7 +81,7 @@ export default function CreateTrip() {
                         <label htmlFor="inputCountry" className="form-label">Country</label>
                         <input value={country} name="country" type="text" className="form-control" id="input-lon" readOnly />
                     </div>
-                    <div className="col-10 offset-1 col-lg-4 offset-lg-4 div-wrapper">
+                    <div className="col-md-4 col-lg-4 offset-lg-4">
                         <label htmlFor="inputDescription" className="form-label">Description*</label>
                         <input type="text" name="description" className="form-control" id="input-destination" placeholder="How was the trip?" required />
                     </div>
@@ -108,8 +108,8 @@ export default function CreateTrip() {
                         <input value={coordinates.lon} name="lon" type="text" className="form-control" id="input-lon" readOnly />
                     </div>
                     <div className="col-12 d-flex justify-content-center">
-                        <button onClick={returnToTrips} type="submit" className="btn btn-primary m-3 p-2">Cancel!</button>
-                        <button type="submit" className="btn btn-primary m-3 p-2">Create trip!</button>
+                        <button onClick={returnToTrips} type="submit" className="btn btn-outline-dark m-3 p-2">Cancel</button>
+                        <button type="submit" className="btn btn-dark m-3 p-2 col-md-2">Create trip</button>
                     </div>
                 </form>
                 <Footer />

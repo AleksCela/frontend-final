@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
+import Navbar from '../components/Navbar.js';
+import Footer from '../components/Footer.js';
 
 export default function UpdateTrip() {
 
@@ -58,53 +60,57 @@ export default function UpdateTrip() {
     }
 
     return (
-        <div>
-            <h1>TRIPS</h1>
-            <h2>You are updating the trip with id={trip_id} </h2>
-            <form onSubmit={UpdateTrip} className="row g-3">
-                <div className="col-md-6">
-                    <label htmlFor="inputDate" className="form-label">Date*</label>
-                    <input type="date" name="date" className="form-control" id="input-date" placeholder="2022-10-20" required />
-                </div>
-                <div className="col-md-6">
-                    <label htmlFor="inputDestination" className="form-label">Destination*</label>
-                    <input type="text" onChange={handleDestination} name="destination" className="form-control" id="input-destination" placeholder="Choose the place..." required />
-                </div>
-                <div className="col-12">
-                    <label htmlFor="inputDescription" className="form-label">Description*</label>
-                    <input type="text" name="description" className="form-control" id="input-destination" placeholder="How was the trip?" required />
-                </div>
-                <div className="col-12">
-                    <label htmlFor="inputDays" className="form-label">Days*</label>
-                    <input type="number" name="days" className="form-control" id="input-days" placeholder="How many days?" required />
-                </div>
-                <div className="col-md-4">
-                    <label htmlFor="inputRating" className="form-label">Rating*</label>
-                    <select id="inputState" name="rating" className="form-select" required>
-                        <option defaultValue={1}>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                </div>
-                <div className="col-md-2">
-                    <label htmlFor="inputLat" className="form-label">Lat</label>
-                    <input type="text" value={coordinates.lat} name="lat" className="form-control" id="input-lat" readOnly />
-                </div>
-                <div className="col-md-2">
-                    <label htmlFor="inputLon" className="form-label">Lon</label>
-                    <input value={coordinates.lon} name="lon" type="text" className="form-control" id="input-lon" readOnly />
-                </div>
-                <div className="col-md-2">
-                    <label htmlFor="inputCountry" className="form-label">Country</label>
-                    <input value={country} name="country" type="text" className="form-control" id="input-lon" readOnly />
-                </div>
-                <div className="col-12">
-                    <button onClick={returnToTrips} type="submit" className="btn btn-primary">Cancel!</button>
-                    <button type="submit" className="btn btn-primary">Update trip!</button>
-                </div>
-            </form>
+        <div className="bg-light w-100 h-100 position-absolute d-inline-block ">
+            <Navbar />
+            <div className="container-md bg-white rounded-3 my-5 p-4">
+                <h3 className='text-center'>Update trip {trip_id} </h3>
+                <p className="alert alert-danger col-md-4 offset-lg-4 text-center">You must fill all mandatory fields!</p>
+                <form onSubmit={UpdateTrip} className="row g-3">
+                    <div className="col-md-4 col-lg-4 offset-lg-4 ">
+                        <label htmlFor="inputDate" className="form-label">Date*</label>
+                        <input type="date" name="date" className="form-control" id="input-date" placeholder="2022-10-20" required />
+                    </div>
+                    <div className="col-md-2 col-lg-2 offset-lg-4">
+                        <label htmlFor="inputDestination" className="form-label">Destination*</label>
+                        <input type="text" onChange={handleDestination} name="destination" className="form-control" id="input-destination" placeholder="Choose the place..." required />
+                    </div>
+                    <div className="col-md-2">
+                        <label htmlFor="inputCountry" className="form-label">Country</label>
+                        <input value={country} name="country" type="text" className="form-control" id="input-lon" readOnly />
+                    </div>
+                    <div className="col-md-4 col-lg-4 offset-lg-4 ">
+                        <label htmlFor="inputDescription" className="form-label">Description*</label>
+                        <input type="text" name="description" className="form-control" id="input-destination" placeholder="How was the trip?" required />
+                    </div>
+                    <div className="col-md-2 col-lg-2 offset-lg-4">
+                        <label htmlFor="inputDays" className="form-label">Days*</label>
+                        <input type="number" name="days" className="form-control" id="input-days" placeholder="How many days?" required />
+                    </div>
+                    <div className="col-md-2">
+                        <label htmlFor="inputRating" className="form-label">Rating*</label>
+                        <select id="inputState" name="rating" className="form-select" required>
+                            <option defaultValue={1}>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <div className="col-md-2 col-lg-2 offset-lg-4">
+                        <label htmlFor="inputLat" className="form-label">Lat</label>
+                        <input type="text" value={coordinates.lat} name="lat" className="form-control" id="input-lat" readOnly />
+                    </div>
+                    <div className="col-md-2">
+                        <label htmlFor="inputLon" className="form-label">Lon</label>
+                        <input value={coordinates.lon} name="lon" type="text" className="form-control" id="input-lon" readOnly />
+                    </div>
+                    <div className="col-12 d-flex justify-content-center">
+                        <button onClick={returnToTrips} type="submit" className="btn btn-cancel btn-outline-dark m-3 p-2">Cancel</button>
+                        <button type="submit" className="btn btn-dark m-3 p-2 col-md-2">Update trip</button>
+                    </div>
+                </form>
+                <Footer />
+            </div>
         </div>
     )
 }

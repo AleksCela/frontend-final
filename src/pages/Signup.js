@@ -44,7 +44,7 @@ export default function Signup() {
       <div className="container-md bg-white rounded-3 my-5 p-4">
         <h1 className="text-center">Sign Up</h1>
         <form class="form-horizontal row g-2" id="registrationForm" onSubmit={handleSubmit}>
-          <div className="col-10 offset-1 col-lg-4 offset-lg-4 div-wrapper">
+          <div className="col-10 offset-1 col-lg-4 offset-lg-4 my-4 div-wrapper">
             <label className="form-label" htmlFor="form3Example1cg">Email</label>
             <input
               onChange={(event) => setEmail(event.target.value)}
@@ -54,7 +54,7 @@ export default function Signup() {
               className="form-control form-control-lg "
             />
           </div>
-          <div className="col-10 offset-1 col-lg-4 offset-lg-4 div-wrapper">
+          <div className="col-10 offset-1 col-lg-4 offset-lg-4 my-4 div-wrapper">
             <label className="form-label" htmlFor="form3Example4cg">Password</label>
             <input
               onChange={(event) => setPassword(event.target.value)}
@@ -66,7 +66,7 @@ export default function Signup() {
             {error ? (<p id="invalidPassword" className="invalidPassword">Invalid email or password!</p>) : null}
           </div>
           <div className="d-flex justify-content-center">
-            <button type="submit" className="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Sign Up</button>
+            <button type="submit" className="btn btn-dark btn-block btn-lg">Sign Up</button>
           </div>
           <p className="text-center text-muted mt-5 mb-0">Already have an account?<Link to={"/login"}>Login Here</Link></p>
         </form>

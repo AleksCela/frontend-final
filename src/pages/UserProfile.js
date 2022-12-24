@@ -53,10 +53,10 @@ export default function UserProfile() {
     }
 
     return (
-        <div className='bg-secondary vh-100'>
+        <div className='back bg-light vh-100'>
             <Navbar />
 
-            <div className='container-md bg-white rounded-3 my-5 p-4'>
+            <div className='container-md bg-white rounded-3 w-75 my-5 p-4'>
                 <h1>Personal Information</h1>
                 <form id="changeEmail" onSubmit={changeEmail}>
                     <label className="form-label" htmlFor="form3Example1cg">Email:</label>
@@ -67,11 +67,13 @@ export default function UserProfile() {
                         name="email"
                         className="form-control form-control-lg"
                     />
-                    <button type="submit" className="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Save</button>
+                    <div className='d-md-flex justify-content-md-end'>
+                        <button type="submit" className="btn btn-secondary btn-lg m-2 col-md-2">Save</button>
+                    </div>
                 </form>
             </div>
 
-            <div className='container-md bg-white rounded-3 my-5 p-4'>
+            <div className='container-md bg-white rounded-3 w-75 my-5 p-4'>
                 <h1>Security</h1>
                 <form id="changePassword" onSubmit={changePassword}>
                     <label className="form-label" htmlFor="form3Example1cg">Current Password:</label>
@@ -88,10 +90,11 @@ export default function UserProfile() {
                         name="newPassword"
                         className="form-control form-control-lg"
                     />
-                    <button type="submit" className="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Save</button>
+                    <div className='d-md-flex justify-content-md-end'>
+                       <button type="submit" className="btn btn-secondary btn-lg m-2 col-md-2 ">Save</button> 
+                    </div>                   
                 </form>
             </div>
-
             <Footer />
         </div >
 

@@ -35,10 +35,10 @@ export default function TripsMap() {
             <Navbar />
             <div className="container-fluid bg-light">
                 <div className="col-md-12 text-center ">
-                    <button className="btnMap btn-lg btn-secondary rounded-pill" type="button" id="btn"> <i class="bi bi-map p-2"></i>Map</button>
-                    <button onClick={() => navigate('/trips')} className="btnTable btn-lg btn-primary rounded-pill" type="button" id="btn"> <i class="bi bi-table p-2"></i>Table</button>
+                    <button className="btnMap btn btn-dark rounded-pill" type="button" id="btn"> <i class="bi bi-map p-2"></i>Map</button>
+                    <button onClick={() => navigate('/trips')} className="btnTable btn btn-light rounded-pill" type="button" id="btn"> <i class="bi bi-table p-2"></i>Table</button>
                 </div>
-                <button onClick={() => navigate('/create-trips')} className="buttonCreate btn btn-success btn-rounded" >New Trip</button>
+                <button onClick={() => navigate('/create-trips')} className="buttonCreate col-md-2 btn btn-danger shadow" >New Trip</button>
                 <MapContainer center={position} zoom={5} scrollWheelZoom={true}>
                     <TileLayer
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -47,17 +47,15 @@ export default function TripsMap() {
                     {trips.map(({ id, date, destination, description, days, rating, latitude, longitude, country }, index) => (
                         <Marker key={index} position={[latitude, longitude]}>
                             <Popup>
-                                <div className="frame-1087">
+                                <div className="frame">
                                     <div className="flex-container">
-                                        <span>{date}</span>
-                                        <span className="creazione-nuovo-task">{days} days</span>
+                                        <p>{date}</p>
+                                        <p className="days">{days} days</p>
                                     </div>
-                                    <span className="creazione-nuovo-task-1">{country}</span>
-                                    <span className="creazione-nuovo-task-2">{destination}</span>
-                                    <span className="creazione-nuovo-task-3">
-                                        {description}
-                                    </span>
-                                    <Rating name="read-only" value={rating} readOnly />
+                                    <p className="country">{country}</p>
+                                    <p className="destination">{destination}</p>
+                                    <p className="description">{description}</p>
+                                    <Rating name="read-only" value={rating} readOnly />                                 
                                 </div>
                             </Popup>
                         </Marker>

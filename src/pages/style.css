@@ -34,7 +34,7 @@
 }
 
 
-.frame-1087 {
+.frame {
     color: #000;
     width: 100%;
     height: 100%;
@@ -43,12 +43,9 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    padding-left: 4px;
-    padding-right: 5px;
     font-family: Spartan, Arial;
     font-size: .824rem;
     font-weight: 300;
-    line-height: 17px;
     display: flex;
 }
 
@@ -56,50 +53,62 @@
     width: 90%;
     flex-direction: row;
     justify-content: space-between;
-    align-items: stretch;
+    align-items: flex-end;
     margin-left: 1px;
     display: flex;
 }
 
-.creazione-nuovo-task {
+.days {
     text-align: right;
 }
 
-.creazione-nuovo-task-1 {
+.country {
     color: #ff6969;
     font-size: .588rem;
     font-weight: 400;
-    line-height: 13px;
+    line-height: 1px;
 }
 
-.creazione-nuovo-task-2 {
+.destination {
     text-align: center;
     color: #2b2b2b;
     margin-bottom: 1px;
     margin-left: 1px;
     font-size: 1.412rem;
     font-weight: 700;
-    line-height: 29px;
+    line-height: .5px;
 }
 
-.creazione-nuovo-task-3 {
+.description {
     text-align: center;
     color: #4f4f4f;
-    margin-top: 1px;
-    margin-bottom: 13px;
+    margin-top: 0.5px;
     margin-left: 1px;
     font-weight: 500;
+    line-height: .5px;
 }
 
-.frame-1073 {
-    width: 138px;
-    height: 22px;
+.frame {
+    width: 140px;
+    height: 100px;
     object-fit: cover;
-    margin-top: 2px;
-    margin-bottom: 2px;
+    margin-top: 1px;
+    margin-bottom: 1px;
     margin-left: 1px;
+    display: inline-block;
+    text-align: center;
 }
 
-h1 {
-    font-family: Spartan;
+
+/* h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+} */
+
+.mt-5 {
+    margin-top: 5rem !important;
+  }
+
+.btn-danger {
+    background-color: #ff6969 !important;
+    /* box-shadow: 5px black !important; */
 }

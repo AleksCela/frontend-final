@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Trips() {
     const navigate = useNavigate();
-
     const [trips, setTrips] = useState([]);
 
     const getTrips = async () => {
@@ -58,18 +57,20 @@ export default function Trips() {
     }
 
     return (
-        <div>
+        <div className="bg-light w-100 h-100 position-absolute d-inline-block ">
             <Navbar />
             <div className="container bg-light">
                 <div className="col-md-12 text-center ">
-                    <button onClick={() => navigate('/trips-map')} className="btnMap btn-lg btn-secondary rounded-pill" type="button" id="btn"> <i class="bi bi-map p-2"></i>Map</button>
-                    <button className="btnTable btn-lg btn-primary rounded-pill" type="button" id="btn"> <i class="bi bi-table p-2"></i>Table</button>
+                    <button onClick={() => navigate('/trips-map')} className="btnMap btn btn-outline-dark rounded-pill" type="button" id="btn"> <i class="bi bi-map p-2"></i>Map</button>
+                    <button className="btnTable btn btn-dark rounded-pill" type="button" id="btn"> <i class="bi bi-table p-2"></i>Table</button>
                 </div>
             </div>
-            <div className="container bg-white">
-                <h1> My trips</h1>
-                <button onClick={navigateToTrip}> Create trip!</button>
-                <table className="table container bg-white" id="table">
+            <div className="container bg-white mt-5 p-4">
+                <div className='row'>
+                    <h2 className='col'> My trips</h2>
+                    <button onClick={navigateToTrip} className="col-md-2 btn btn-danger"> Create trip!</button>
+                </div>  
+                <table className="table container bg-white mt-4" id="table">
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
