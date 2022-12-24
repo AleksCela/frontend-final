@@ -1,7 +1,8 @@
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useNavigate } from 'react-router-dom';
-import { MapContainer, TileLayer, Marker, Popup, LayersControl } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { Rating } from '@mui/material';
 import "./style.css";
 import { useEffect, useState } from 'react';
 
@@ -43,29 +44,20 @@ export default function TripsMap() {
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-                    {trips.map(({ id, date, destination, description, days, rating, latitude, longitude }, index) => (
+                    {trips.map(({ id, date, destination, description, days, rating, latitude, longitude, country }, index) => (
                         <Marker key={index} position={[latitude, longitude]}>
                             <Popup>
-                                {/* <div className="card">
-                                    <div className="card-header">{destination}</div>
-                                    <div className="card-main">
-                                        <p>Description:{description}</p>
-                                        <p>Date: {date}</p>
-                                        <p>Days: {days}</p>
-                                        <p>Rating:{rating}</p>
-                                    </div>
-                                    <div className='card-footer' >Hello</div>
-                                </div> */}
                                 <div className="frame-1087">
                                     <div className="flex-container">
                                         <span>{date}</span>
                                         <span className="creazione-nuovo-task">{days} days</span>
                                     </div>
-                                    <span className="creazione-nuovo-task-1">{destination}</span>
+                                    <span className="creazione-nuovo-task-1">{country}</span>
                                     <span className="creazione-nuovo-task-2">{destination}</span>
                                     <span className="creazione-nuovo-task-3">
                                         {description}
                                     </span>
+                                    <Rating name="read-only" value={rating} readOnly />
                                 </div>
                             </Popup>
                         </Marker>

@@ -5,6 +5,7 @@ export default function CreateTrip() {
 
     const [coordinates, setCoordinates] = useState({});
     const [destinationDirect, setDestinationDirect] = useState([]);
+    const [country, setCountry] = useState("");
 
     const handleDestination = async (event) => {
         setDestinationDirect(event.target.value)
@@ -18,6 +19,11 @@ export default function CreateTrip() {
                 lon: data[0].lon
             };
             setCoordinates(trip)
+            const responseCountry = await fetch(
+                `https://nominatim.openstreetmap.org/reverse?lat=${trip.lat}&lon=${trip.lon}&format=json`
+            );
+            const dataCountry = await responseCountry.json();
+            setCountry(dataCountry.address.country);
         }
     }
 
@@ -34,7 +40,7 @@ export default function CreateTrip() {
         const rating = formData.get("rating");
         const latitude = formData.get("lat");
         const longitude = formData.get("lon");
-        const values = { date, destination, description, days, rating, latitude, longitude, user_id, };
+        const values = { date, destination, description, days, rating, latitude, longitude, country, user_id };
         const response = await fetch(`http://localhost:4000/api/trips/`, {
             method: 'POST', headers: {
                 'Content-Type': 'application/json'
@@ -92,6 +98,10 @@ export default function CreateTrip() {
                 <div className="col-md-2">
                     <label htmlFor="inputLon" className="form-label">Lon</label>
                     <input value={coordinates.lon} name="lon" type="text" className="form-control" id="input-lon" readOnly />
+                </div>
+                <div className="col-md-2">
+                    <label htmlFor="inputCountry" className="form-label">Country</label>
+                    <input value={country} name="country" type="text" className="form-control" id="input-lon" readOnly />
                 </div>
                 <div className="col-12">
                     <button onClick={returnToTrips} type="submit" className="btn btn-primary">Cancel!</button>
