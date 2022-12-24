@@ -30,7 +30,6 @@ export default function Trips() {
         navigate('/update-trip');
     }
 
-
     async function deleteTrip(event) {
         const delete_id = event.currentTarget.id;
         await fetch(`http://localhost:4000/api/trips/${delete_id}`, {
@@ -63,8 +62,8 @@ export default function Trips() {
             <Navbar />
             <div className="container bg-light">
                 <div className="col-md-12 text-center ">
-                    <button onClick={() => navigate('/trips-map')} className="btn-lg btn-secondary rounded-pill m-4" type="button" id="btn"> <i class="bi bi-map p-2"></i>Map</button>
-                    <button className="btn-lg btn-primary rounded-pill" type="button" id="btn"> <i class="bi bi-table p-2"></i>Table</button>
+                    <button onClick={() => navigate('/trips-map')} className="btnMap btn-lg btn-secondary rounded-pill" type="button" id="btn"> <i class="bi bi-map p-2"></i>Map</button>
+                    <button className="btnTable btn-lg btn-primary rounded-pill" type="button" id="btn"> <i class="bi bi-table p-2"></i>Table</button>
                 </div>
             </div>
             <div className="container bg-white">

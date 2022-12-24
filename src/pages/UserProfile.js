@@ -1,13 +1,18 @@
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useState } from 'react';
 
 export default function UserProfile() {
+
+    const [email, setEmail] = useState(localStorage.getItem("email"));
+
     async function changeEmail(event) {
         event.preventDefault();
         const id = localStorage.getItem("user_id")
         const form = event.target;
         const formData = new FormData(form);
         const newEmail = formData.get("email");
+        setEmail(newEmail);
         const values = { newEmail, id };
         const response = await fetch(`http://localhost:4000/api/update-email`, {
             method: "PUT",
@@ -18,6 +23,7 @@ export default function UserProfile() {
         });
         if (response.ok) {
             window.alert("Email Updated!")
+            localStorage.setItem("email", newEmail)
         } else {
             console.log("Could not update email!");
         }
@@ -55,6 +61,7 @@ export default function UserProfile() {
                 <form id="changeEmail" onSubmit={changeEmail}>
                     <label className="form-label" htmlFor="form3Example1cg">Email:</label>
                     <input
+                        placeholder={email}
                         type="email"
                         id="form3Example1cg"
                         name="email"

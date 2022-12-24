@@ -38,10 +38,6 @@ export default function Signup() {
     }
   };
 
-  // function redirectLogin() {
-  //   navigate("/login");
-  // }
-
   return (
     <div className="bg-light w-100 h-100 position-absolute d-inline-block ">
       <NavbarSignupLogin />

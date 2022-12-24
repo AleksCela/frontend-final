@@ -43,13 +43,13 @@ export default function Login() {
       <div className="container-md bg-white rounded-3 my-5 p-4">
         <h1 className="text-center">Log In</h1>
         <form className="form-horizontal row g-2" id="loginForm" onSubmit={handleSubmit}>
-          <div className="col-10 offset-1 col-lg-4 offset-lg-4 div-wrapper">
+          <div className="col-10 offset-1 col-lg-4 offset-lg-4 my-4 div-wrapper">
             <label className="form-label" htmlFor="form3Example1cg">Email</label>
             <input onChange={(event) =>
               setEmail(event.target.value)
             } type="text" id="form3Example1cg" name="email" className="form-control form-control-lg" />
           </div>
-          <div className="col-10 offset-1 col-lg-4 offset-lg-4 div-wrapper">
+          <div className="col-10 offset-1 col-lg-4 offset-lg-4 my-4 div-wrapper">
             <label className="form-label" htmlFor="form3Example4cg">Password</label>
             <input onChange={(event) =>
               setPassword(event.target.value)
