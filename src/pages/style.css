@@ -43,18 +43,22 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    padding-left: 4px;
+    padding-right: 5px;
     font-family: Spartan, Arial;
     font-size: .824rem;
     font-weight: 300;
-    display: inline-flex;
-    padding-right: 2px;
+    line-height: 15px;
+    display: flex;
+    object-fit: cover;
+    text-align: center;
 }
 
 .flex-container {
     width: 90%;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: stretch;
     margin-left: 1px;
     display: flex;
 }
@@ -65,41 +69,30 @@
 
 .country {
     color: #ff6969;
-    font-size: .588rem;
     font-weight: 400;
-    line-height: 1px;
+    line-height: .2px;
 }
 
 .destination {
     text-align: center;
-    color: #2b2b2b;
+    color: black;
     margin-bottom: 1px;
     margin-left: 1px;
-    font-size: 1.412rem;
-    font-weight: 700;
-    line-height: 20px;
+    font-size: 1.4rem;
+    font-weight: 800;
+    line-height: .2px;
+    padding-top: .5px;
 }
 
 .description {
     text-align: center;
-    color: #4f4f4f;
-    margin-top: 0.5px;
-    margin-left: 1px;
-    font-weight: 500;
-    line-height: .5px;
-}
-
-.frame {
-    width: 140px;
-    height: 100px;
-    object-fit: cover;
-    margin-top: 1px;
+    color: black;
+    margin-top: 10px;
     margin-bottom: 1px;
     margin-left: 1px;
-    display: inline-block;
-    text-align: center;
+    font-weight: 300;
+    font-size: 0.8rem;
 }
-
 
 /* h1 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -107,7 +100,7 @@
 
 .mt-5 {
     margin-top: 5rem !important;
-  }
+}
 
 .btn-danger {
     background-color: #ff6969 !important;
