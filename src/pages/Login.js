@@ -26,6 +26,7 @@ export default function Login() {
       navigate('/Trips')
     } else {
       setError(data)
+      localStorage.clear();
     }
   }
 

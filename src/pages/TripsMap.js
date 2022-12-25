@@ -55,7 +55,7 @@ export default function TripsMap() {
                                     <p className="country">{country}</p>
                                     <p className="destination">{destination}</p>
                                     <p className="description">{description}</p>
-                                    <Rating name="read-only" value={rating} readOnly />                                 
+                                    <Rating name="read-only" value={rating} readOnly />
                                 </div>
                             </Popup>
                         </Marker>

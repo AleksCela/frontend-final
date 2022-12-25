@@ -35,6 +35,7 @@ export default function Signup() {
       navigate("/login");
     } else {
       setError(data);
+      localStorage.clear();
     }
   };
 
