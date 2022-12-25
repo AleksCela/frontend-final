@@ -75,21 +75,25 @@ export default function UserProfile() {
 
             <div className='container-md bg-white rounded-3 w-75 my-5 p-4'>
                 <h1>Security</h1>
-                <form id="changePassword" onSubmit={changePassword}>
-                    <label className="form-label" htmlFor="form3Example1cg">Current Password:</label>
-                    <input
-                        type="password"
-                        id="form3Example1cg"
-                        name="currentPassword"
-                        className="form-control form-control-lg"
-                    />
-                    <label className="form-label" htmlFor="form3Example1cg">New Password:</label>
-                    <input
-                        type="password"
-                        id="form3Example1cg"
-                        name="newPassword"
-                        className="form-control form-control-lg"
-                    />
+                <form className='row g-2' id="changePassword" onSubmit={changePassword}>
+                    <div className='col-md-6'>
+                        <label className="form-label" htmlFor="form3Example1cg">Current Password:</label>
+                        <input
+                            type="password"
+                            id="form3Example1cg"
+                            name="currentPassword"
+                            className="form-control form-control-lg col-md-2 col-lg-4 "
+                        />
+                    </div>
+                    <div className='col-md-6'>
+                        <label className="form-label" htmlFor="form3Example1cg">New Password:</label>
+                        <input
+                            type="password"
+                            id="form3Example1cg"
+                            name="newPassword"
+                            className="form-control form-control-lg col-md-2"
+                        />
+                     </div>
                     <div className='d-md-flex justify-content-md-end'>
                        <button type="submit" className="btn btn-secondary btn-lg m-2 col-md-2 ">Save</button> 
                     </div>                   

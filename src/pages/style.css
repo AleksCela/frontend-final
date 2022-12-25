@@ -46,7 +46,8 @@
     font-family: Spartan, Arial;
     font-size: .824rem;
     font-weight: 300;
-    display: flex;
+    display: inline-flex;
+    padding-right: 2px;
 }
 
 .flex-container {
@@ -76,7 +77,7 @@
     margin-left: 1px;
     font-size: 1.412rem;
     font-weight: 700;
-    line-height: .5px;
+    line-height: 20px;
 }
 
 .description {

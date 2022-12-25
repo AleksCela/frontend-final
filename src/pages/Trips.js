@@ -2,6 +2,7 @@ import React, { } from 'react';
 import Navbar from '../components/Navbar';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 export default function Trips() {
     const navigate = useNavigate();
@@ -84,6 +85,7 @@ export default function Trips() {
                         {renderTrips()}
                     </tbody>
                 </table>
+                <Footer />
             </div>
 
         </div>
