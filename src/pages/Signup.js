@@ -32,7 +32,8 @@ export default function Signup() {
 
     if (response.ok) {
       console.log("all is ok");
-      navigate("/trips");
+      localStorage.setItem("email", email);
+      navigate('/trips');
     } else {
       setError(data);
       localStorage.clear();
