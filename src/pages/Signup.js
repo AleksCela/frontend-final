@@ -32,7 +32,7 @@ export default function Signup() {
 
     if (response.ok) {
       console.log("all is ok");
-      navigate("/login");
+      navigate("/trips");
     } else {
       setError(data);
       localStorage.clear();
