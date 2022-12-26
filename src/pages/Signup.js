@@ -9,11 +9,11 @@ export default function Signup() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-      const emailLogged = localStorage.getItem("email");
-      if (emailLogged) {
-        navigate("/trips");
-      } else {
-      }
+        const emailLogged = localStorage.getItem("email");
+        if (emailLogged) {
+            navigate("/trips");
+        } else {
+        }
     }, []);
 
     const handleSubmit = async (event) => {
@@ -26,7 +26,7 @@ export default function Signup() {
         const response = await fetch("http://localhost:4000/api/sign-up", {
             method: "POST",
             headers: {
-              "Content-Type": "application/json",
+                "Content-Type": "application/json",
             },
             body: JSON.stringify(values),
         });
@@ -57,8 +57,8 @@ export default function Signup() {
                             id="emailInput"
                             name="email"
                             className="form-control form-control-lg"
-                            minLength = "5"
-                            maxLength = "20"
+                            minLength="5"
+                            maxLength="20"
                             title="Email must contain 5 to 20 characters."
                         />
                     </div>
@@ -71,19 +71,19 @@ export default function Signup() {
                             name="password"
                             id="passwordInput"
                             className="form-control form-control-lg"
-                            minLength = "5"
-                            maxLength = "20"
+                            minLength="5"
+                            maxLength="20"
                             title="Password must contain 5-20 characters and at least one number and one special character."
                         />
                         {error ? (
                             <p id="invalidPassword" className="invalidPassword">
-                              Invalid email or password!
+                                Invalid email or password!
                             </p>
                         ) : null}
                     </div>
                     <div className="d-flex justify-content-center">
                         <button type="submit" className="btn btn-dark btn-block btn-lg">
-                          Sign Up
+                            Sign Up
                         </button>
                     </div>
                     <p className="text-center text-muted mt-5 mb-0">

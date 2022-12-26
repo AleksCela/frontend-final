@@ -1,9 +1,20 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function UserProfile() {
+    const navigate = useNavigate();
     const [email, setEmail] = useState(localStorage.getItem("email"));
+
+    async function deleteAccount() {
+        const id = localStorage.getItem("user_id");
+        await fetch(`http://localhost:4000/api/user/${id}`, {
+            method: "DELETE",
+        });
+        localStorage.clear();
+        navigate("/login");
+    }
 
     async function changeEmail(event) {
         event.preventDefault();
@@ -105,6 +116,7 @@ export default function UserProfile() {
                         </button>
                     </div>
                 </form>
+                <button onClick={deleteAccount} className="btn btn-danger btn-lg"><i className="bi bi-trash3-fill"></i>Delete Account</button>
             </div>
             <Footer />
         </div>

@@ -35,7 +35,6 @@ export default function Trips() {
         await fetch(`http://localhost:4000/api/trips/${delete_id}`, {
             method: "DELETE",
         });
-        window.alert("Trip deleted!");
         getTrips();
     }
 

@@ -105,3 +105,7 @@ h1 {
     background-color: #ff6969 !important;
     box-shadow: 10px white !important;
 }
+
+.invalidPassword {
+    color: red;
+}

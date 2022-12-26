@@ -17,7 +17,7 @@ export default function Login() {
         const response = await fetch("http://localhost:4000/api/login", {
             method: "POST",
             headers: {
-              "Content-Type": "application/json",
+                "Content-Type": "application/json",
             },
             body: JSON.stringify(values)
         });
@@ -33,11 +33,11 @@ export default function Login() {
     };
 
     useEffect(() => {
-      const email_logged = localStorage.getItem("email");
-      if (email_logged) {
-        navigate("/trips");
-      } else {
-      }
+        const email_logged = localStorage.getItem("email");
+        if (email_logged) {
+            navigate("/trips");
+        } else {
+        }
     }, []);
 
     return (
@@ -46,38 +46,38 @@ export default function Login() {
             <div className="container-md bg-white rounded-3 my-5 p-4">
                 <h1 className="text-center">Log In</h1>
                 <form onSubmit={authentication} className="form-horizontal row g-2" id="loginForm">
-                  <div className="col-10 offset-1 col-lg-4 offset-lg-4 my-4 div-wrapper">
-                      <label className="form-label" htmlFor="emailInput">
-                          Email
-                      </label>
-                      <input
-                          type="text"
-                          id="emailInput"
-                          name="email"
-                          className="form-control form-control-lg"
-                          minlength = "5"
-                          maxlength = "20"
-                          title="Email must contain 5 to 20 characters."
-                      />
-                  </div>
-                  <div className="col-10 offset-1 col-lg-4 offset-lg-4 my-4 div-wrapper">
-                      <label className="form-label" htmlFor="passwordInput">
-                          Password
-                      </label>
-                      <input
-                          type="password"
-                          name="password"
-                          id="passwordInput"
-                          className="form-control form-control-lg"
-                          minlength = "5"
-                          maxlength = "20"
-                          title="Password must contain 5-20 characters and at least one number and one special character."
-                      />
-                      {error ? (
-                          <p id="invalidPassword" className="invalidPassword">
-                              Email and password do not match!
-                          </p>
-                      ) : null}
+                    <div className="col-10 offset-1 col-lg-4 offset-lg-4 my-4 div-wrapper">
+                        <label className="form-label" htmlFor="emailInput">
+                            Email
+                        </label>
+                        <input
+                            type="text"
+                            id="emailInput"
+                            name="email"
+                            className="form-control form-control-lg"
+                            minLength="5"
+                            maxLength="20"
+                            title="Email must contain 5 to 20 characters."
+                        />
+                    </div>
+                    <div className="col-10 offset-1 col-lg-4 offset-lg-4 my-4 div-wrapper">
+                        <label className="form-label" htmlFor="passwordInput">
+                            Password
+                        </label>
+                        <input
+                            type="password"
+                            name="password"
+                            id="passwordInput"
+                            className="form-control form-control-lg"
+                            minLength="5"
+                            maxLength="20"
+                            title="Password must contain 5-20 characters and at least one number and one special character."
+                        />
+                        {error ? (
+                            <p id="invalidPassword" className="invalidPassword">
+                                Email and password do not match!
+                            </p>
+                        ) : null}
                     </div>
                     <div className="d-flex justify-content-center">
                         <button type="submit" className="btn btn-dark btn-block btn-lg">
