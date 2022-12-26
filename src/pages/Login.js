@@ -57,6 +57,7 @@ export default function Login() {
                           className="form-control form-control-lg"
                           minlength = "5"
                           maxlength = "20"
+                          title="Email must contain 5 to 20 characters."
                       />
                   </div>
                   <div className="col-10 offset-1 col-lg-4 offset-lg-4 my-4 div-wrapper">
@@ -70,6 +71,7 @@ export default function Login() {
                           className="form-control form-control-lg"
                           minlength = "5"
                           maxlength = "20"
+                          title="Password must contain 5-20 characters and at least one number and one special character."
                       />
                       {error ? (
                           <p id="invalidPassword" className="invalidPassword">
