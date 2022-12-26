@@ -60,7 +60,9 @@ export default function Signup() {
               type="email"
               id="emailInput"
               name="email"
-              className="form-control form-control-lg "
+              className="form-control form-control-lg"
+              minlength = "5"
+              maxlength = "20"
             />
           </div>
           <div className="col-10 offset-1 col-lg-4 offset-lg-4 my-4 div-wrapper">
@@ -72,6 +74,8 @@ export default function Signup() {
               name="password"
               id="passwordInput"
               className="form-control form-control-lg"
+              minlength = "5"
+              maxlength = "20"
             />
             {error ? (
               <p id="invalidPassword" className="invalidPassword">

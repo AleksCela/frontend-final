@@ -25,7 +25,7 @@ export default function Login() {
     if (response.ok) {
       localStorage.setItem("email", email);
       localStorage.setItem("user_id", data.id);
-      navigate("/Trips");
+      navigate("/trips");
     } else {
       setError(data);
       localStorage.clear();
@@ -59,6 +59,8 @@ export default function Login() {
               id="emailInput"
               name="email"
               className="form-control form-control-lg"
+              minlength = "5"
+              maxlength = "20"
             />
           </div>
           <div className="col-10 offset-1 col-lg-4 offset-lg-4 my-4 div-wrapper">
@@ -70,10 +72,12 @@ export default function Login() {
               name="password"
               id="passwordInput"
               className="form-control form-control-lg"
+              minlength = "5"
+              maxlength = "20"
             />
             {error ? (
               <p id="invalidPassword" className="invalidPassword">
-                Password and email do not match!
+                Email and password do not match!
               </p>
             ) : null}
           </div>
@@ -83,7 +87,7 @@ export default function Login() {
             </button>
           </div>
           <p className="text-center text-muted mt-5 mb-0">
-            Dont have an account?<Link to={"/sign-up"}>Sign Up</Link>
+            Don't have an account?<Link to={"/sign-up"}>Sign Up</Link>
           </p>
         </form>
       </div>
