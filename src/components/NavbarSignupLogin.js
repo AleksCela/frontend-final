@@ -1,11 +1,13 @@
-import React, { } from 'react';
+import React from "react";
 
 export default function Navbar() {
     return (
-        <nav class="navbar navbar-expand-lg bg-white">
-            <div class="container-fluid">
-                <a class="navbar-brand"><b>My trips</b> diary</a>                
+        <nav className="navbar navbar-expand-lg bg-white">
+            <div className="container-fluid">
+                <a className="navbar-brand">
+                    <b>My trips</b> diary
+                </a>
             </div>
         </nav>
-    )
+    );
 }
