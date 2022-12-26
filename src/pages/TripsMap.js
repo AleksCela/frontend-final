@@ -76,7 +76,7 @@ export default function TripsMap() {
                             },
                             index
                         ) => (
-                            <Marker key={index} position={[latitude, longitude]}>
+                            <Marker key={index} position={[latitude, longitude]} eventHandlers={{mouseover: (event) => event.target.openPopup()}}>
                                 <Popup>
                                     <div className="frame">
                                         <div className="flex-container">
