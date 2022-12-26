@@ -20,37 +20,24 @@ export default function Navbar() {
                 >
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div
-                    className="collapse navbar-collapse justify-content-end"
-                    id="navbarText"
-                >
+                <div className="collapse navbar-collapse justify-content-end" id="navbarText">
                     <ul className="navbar-nav mb-2 mb-lg-0 gap-3">
                         <li className="nav-item ml-4">
-                            <Link
-                                style={{ textDecoration: "none", color: "black" }}
-                                to={"/trips"}
-                            >
+                            <Link style={{ textDecoration: "none", color: "black" }} to={"/trips"}>
                                 My Trips
                             </Link>
                         </li>
                         <li>
                             <span className="nav-item">
-                                <Link
-                                    style={{ textDecoration: "none", color: "black" }}
-                                    to={"/user-profile"}
-                                >
+                                <Link style={{ textDecoration: "none", color: "black" }} to={"/user-profile"}>
                                     <i className="bi bi-person-circle"></i>
                                 </Link>
                             </span>
                         </li>
                         <li>
-                            <span
-                                className="nav-item"
-                                onClick={() => {
+                            <span className="nav-item" onClick={() => {
                                     localStorage.clear();
-                                    navigate("/login");
-                                }}
-                            >
+                                    navigate("/login"); }}>
                                 <i className="bi bi-box-arrow-right"></i>
                             </span>
                         </li>

@@ -15,8 +15,7 @@ export default function Trips() {
         setTrips(data);
     };
 
-    useEffect(() => {
-        //if not logged in => redirects to login , otherwise gets the trips
+    useEffect(() => {                                                    //if not logged in => redirects to login , otherwise gets the trips
         const id_logged = localStorage.getItem("user_id");
         if (!id_logged) {
             navigate("/login");
@@ -69,24 +68,17 @@ export default function Trips() {
     }
 
     return (
-        <div className="bg-light w-100 h-100 position-absolute d-inline-block ">
+        <div className="bg-light w-100 h-100 position-absolute d-inline-block">
             <Navbar />
             <div className="container bg-light">
-                <div className="col-md-12 text-center ">
-                    <button
-                        onClick={() => navigate("/trips-map")}
-                        className="btnMap btn btn-outline-dark rounded-pill"
-                        type="button"
-                        id="btn"
-                    >
-                        <i className="bi bi-map p-2"></i>Map
+                <div className="col-md-12 text-center">
+                    <button onClick={() => navigate("/trips-map")} className="btnMap btn btn-outline-dark rounded-pill" type="button" id="btn">
+                        <i className="bi bi-map p-2"></i>
+                        Map
                     </button>
-                    <button
-                        className="btnTable btn btn-dark rounded-pill"
-                        type="button"
-                        id="btn"
-                    >
-                        <i className="bi bi-table p-2"></i>Table
+                    <button className="btnTable btn btn-dark rounded-pill" type="button" id="btn">
+                        <i className="bi bi-table p-2"></i>
+                        Table
                     </button>
                 </div>
             </div>

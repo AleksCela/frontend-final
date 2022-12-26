@@ -40,16 +40,7 @@ export default function UpdateTrip() {
         const description = formData.get("description");
         const days = formData.get("days");
         const rating = formData.get("rating");
-        const values = {
-            date,
-            destination,
-            description,
-            days,
-            rating,
-            user_id,
-            trip_id,
-            country,
-        };
+        const values = { date, destination, description, days, rating, country, user_id, trip_id };
         const response = await fetch(`http://localhost:4000/api/trips/${trip_id}`, {
             method: "PUT",
             headers: {
@@ -163,7 +154,7 @@ export default function UpdateTrip() {
                     </div>
                     <div className="col-md-2 col-lg-2 offset-lg-4">
                         <label htmlFor="inputLat" className="form-label">
-                            Lat
+                            Latitude
                         </label>
                         <input
                             type="text"
@@ -176,7 +167,7 @@ export default function UpdateTrip() {
                     </div>
                     <div className="col-md-2">
                         <label htmlFor="inputLon" className="form-label">
-                            Lon
+                            Longitude
                         </label>
                         <input
                             value={coordinates.lon}
@@ -188,11 +179,7 @@ export default function UpdateTrip() {
                         />
                     </div>
                     <div className="col-12 d-flex justify-content-center">
-                        <button
-                            onClick={returnToTrips}
-                            type="submit"
-                            className="btn btn-cancel btn-outline-dark m-3 p-2"
-                        >
+                        <button onClick={returnToTrips} type="submit" className="btn btn-cancel btn-outline-dark m-3 p-2">
                             Cancel
                         </button>
                         <button type="submit" className="btn btn-dark m-3 p-2 col-md-2">

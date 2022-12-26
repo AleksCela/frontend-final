@@ -8,8 +8,7 @@ export default function CreateTrip() {
     const [destinationDirect, setDestinationDirect] = useState([]);
     const [country, setCountry] = useState("");
 
-    useEffect(() => {
-        //if not logged in => redirects to login
+    useEffect(() => {                                                          //if not logged in => redirects to login
         const id_logged = localStorage.getItem("user_id");
         if (!id_logged) {
             navigate("/login");
@@ -49,17 +48,7 @@ export default function CreateTrip() {
         const rating = formData.get("rating");
         const latitude = formData.get("lat");
         const longitude = formData.get("lon");
-        const values = {
-            date,
-            destination,
-            description,
-            days,
-            rating,
-            latitude,
-            longitude,
-            country,
-            user_id,
-        };
+        const values = { date, destination, description, days, rating, latitude, longitude, country, user_id };
         const response = await fetch(`http://localhost:4000/api/trips/`, {
             method: "POST",
             headers: {
@@ -71,7 +60,7 @@ export default function CreateTrip() {
             window.alert("Trip is created!");
             navigate("/trips");
         } else {
-            window.alert("Trip could not be created!")
+            window.alert("Trip could not be created!");
         }
     };
 
@@ -173,7 +162,7 @@ export default function CreateTrip() {
                     </div>
                     <div className="col-md-2 col-lg-2 offset-lg-4">
                         <label htmlFor="inputLat" className="form-label">
-                            Lat
+                            Latitude
                         </label>
                         <input
                             type="text"
@@ -186,7 +175,7 @@ export default function CreateTrip() {
                     </div>
                     <div className="col-md-2">
                         <label htmlFor="inputLon" className="form-label">
-                            Lon
+                            Longitude
                         </label>
                         <input
                             value={coordinates.lon}

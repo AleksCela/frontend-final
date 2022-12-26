@@ -46,7 +46,7 @@ export default function UserProfile() {
         if (response.ok) {
             window.alert("Password Updated!");
         } else {
-            window.alert("Could not update password!")
+            window.alert("Could not update password!");
         }
         form.reset();
     }
@@ -54,12 +54,11 @@ export default function UserProfile() {
     return (
         <div className="back bg-light vh-100">
             <Navbar />
-
             <div className="container-md bg-white rounded-3 w-75 my-5 p-4">
                 <h1>Personal Information</h1>
                 <form id="changeEmail" onSubmit={changeEmail}>
                     <label className="form-label" htmlFor="form3Example1cg">
-                        Email:
+                        Email
                     </label>
                     <input
                         placeholder={email}
@@ -69,22 +68,18 @@ export default function UserProfile() {
                         className="form-control form-control-lg"
                     />
                     <div className="d-md-flex justify-content-md-end">
-                        <button
-                            type="submit"
-                            className="btn btn-secondary btn-lg m-2 col-md-2"
-                        >
+                        <button type="submit" className="btn btn-secondary btn-lg m-2 col-md-2">
                             Save
                         </button>
                     </div>
                 </form>
             </div>
-
             <div className="container-md bg-white rounded-3 w-75 my-5 p-4">
                 <h1>Security</h1>
                 <form className="row g-2" id="changePassword" onSubmit={changePassword}>
                     <div className="col-md-6">
                         <label className="form-label" htmlFor="form3Example1cg">
-                            Current Password:
+                            Current Password
                         </label>
                         <input
                             type="password"
@@ -95,7 +90,7 @@ export default function UserProfile() {
                     </div>
                     <div className="col-md-6">
                         <label className="form-label" htmlFor="form3Example1cg">
-                            New Password:
+                            New Password
                         </label>
                         <input
                             type="password"
@@ -105,10 +100,7 @@ export default function UserProfile() {
                         />
                     </div>
                     <div className="d-md-flex justify-content-md-end">
-                        <button
-                            type="submit"
-                            className="btn btn-secondary btn-lg m-2 col-md-2 "
-                        >
+                        <button type="submit" className="btn btn-secondary btn-lg m-2 col-md-2 ">
                             Save
                         </button>
                     </div>

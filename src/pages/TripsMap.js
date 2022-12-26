@@ -19,8 +19,7 @@ export default function TripsMap() {
         setTrips(data);
     };
 
-    useEffect(() => {
-        //if not logged in => redirects to login , otherwise gets the trips
+    useEffect(() => {                                                //if not logged in => redirects to login , otherwise gets the trips
         const id_logged = localStorage.getItem("user_id");
         if (!id_logged) {
             navigate("/login");
@@ -33,27 +32,17 @@ export default function TripsMap() {
         <div>
             <Navbar />
             <div className="container-fluid bg-light">
-                <div className="col-md-12 text-center ">
-                    <button
-                        className="btnMap btn btn-dark rounded-pill"
-                        type="button"
-                        id="btn"
-                    >
-                        <i className="bi bi-map p-2"></i>Map
+                <div className="col-md-12 text-center">
+                    <button className="btnMap btn btn-dark rounded-pill" type="button" id="btn">
+                        <i className="bi bi-map p-2"></i>
+                        Map
                     </button>
-                    <button
-                        onClick={() => navigate("/trips")}
-                        className="btnTable btn btn-light rounded-pill"
-                        type="button"
-                        id="btn"
-                    >
-                        <i className="bi bi-table p-2"></i>Table
+                    <button onClick={() => navigate("/trips")} className="btnTable btn btn-light rounded-pill" type="button" id="btn">
+                        <i className="bi bi-table p-2"></i>
+                        Table
                     </button>
                 </div>
-                <button
-                    onClick={() => navigate("/create-trips")}
-                    className="buttonCreate col-md-2 btn btn-danger shadow"
-                >
+                <button onClick={() => navigate("/create-trips")} className="buttonCreate col-md-2 btn btn-danger shadow">
                     New Trip
                 </button>
                 <MapContainer center={position} zoom={3} scrollWheelZoom={true}>
@@ -62,20 +51,7 @@ export default function TripsMap() {
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
                     {trips.map(
-                        (
-                            {
-                                id,
-                                date,
-                                destination,
-                                description,
-                                days,
-                                rating,
-                                latitude,
-                                longitude,
-                                country,
-                            },
-                            index
-                        ) => (
+                        ({ id, date, destination, description, days, rating, latitude, longitude, country }, index) => (
                             <Marker key={index} position={[latitude, longitude]} eventHandlers={{mouseover: (event) => event.target.openPopup()}}>
                                 <Popup>
                                     <div className="frame">
@@ -86,7 +62,7 @@ export default function TripsMap() {
                                         <p className="country">{country}</p>
                                         <p className="destination">{destination}</p>
                                         <p className="description">{description}</p>
-                                        <Rating name="read-only" value={rating} readOnly />
+                                        <Rating name="rating" value={rating} readOnly />
                                     </div>
                                 </Popup>
                             </Marker>
