@@ -10,8 +10,8 @@ export default function CreateTrip() {
     const navigate = useNavigate();
 
     useEffect(() => {                                                            //if not logged in => redirects to login
-        const id_logged = localStorage.getItem("user_id");
-        if (!id_logged) {
+        const idLogged = localStorage.getItem("userId");
+        if (!idLogged) {
             navigate("/login");
         }
     }, []);
@@ -40,7 +40,7 @@ export default function CreateTrip() {
         event.preventDefault();
         const form = event.target;
         const formData = new FormData(form);
-        const user_id = Number(window.localStorage.getItem("user_id"));
+        const userId = Number(window.localStorage.getItem("userId"));
         const date = formData.get("date");
         const destination = formData.get("destination");
         const description = formData.get("description");
@@ -48,7 +48,7 @@ export default function CreateTrip() {
         const rating = formData.get("rating");
         const latitude = formData.get("lat");
         const longitude = formData.get("lon");
-        const values = { date, destination, description, days, rating, latitude, longitude, country, user_id };
+        const values = { date, destination, description, days, rating, latitude, longitude, country, userId };
         const response = await fetch(`http://localhost:4000/api/trips/`, {
             method: "POST",
             headers: {

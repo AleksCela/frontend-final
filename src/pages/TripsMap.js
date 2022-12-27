@@ -11,8 +11,8 @@ export default function TripsMap() {
     const [trips, setTrips] = useState([]);
 
     useEffect(() => {                                                //if not logged in => redirects to login , otherwise gets the trips
-        const id_logged = localStorage.getItem("user_id");
-        if (!id_logged) {
+        const idLogged = localStorage.getItem("userId");
+        if (!idLogged) {
             navigate("/login");
         } else {
             getTrips();
@@ -20,8 +20,8 @@ export default function TripsMap() {
     }, []);
 
     const getTrips = async () => {
-        const user_id = localStorage.getItem("user_id");
-        const response = await fetch(`http://localhost:4000/api/trips/${user_id}`);
+        const userId = localStorage.getItem("userId");
+        const response = await fetch(`http://localhost:4000/api/trips/${userId}`);
         const data = await response.json();
         setTrips(data);
     };

@@ -117,3 +117,13 @@ h1 {
 .bg-light {
     background-color: #eff3f7 !important;
 }
+
+#myTrips {
+    text-decoration: none; 
+    color: black;
+}
+
+#userProfile {
+    text-decoration: none; 
+    color: black;
+}
