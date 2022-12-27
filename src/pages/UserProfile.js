@@ -68,13 +68,13 @@ export default function UserProfile() {
             <div className="container-md bg-white rounded-3 w-75 my-5 p-4">
                 <h1>Personal Information</h1>
                 <form id="changeEmail" onSubmit={changeEmail}>
-                    <label className="form-label" htmlFor="form3Example1cg">
+                    <label className="form-label" htmlFor="changeEmailInput">
                         Email
                     </label>
                     <input
                         placeholder={email}
                         type="email"
-                        id="form3Example1cg"
+                        id="changeEmailInput"
                         name="email"
                         className="form-control form-control-lg"
                     />
@@ -89,23 +89,23 @@ export default function UserProfile() {
                 <h1>Security</h1>
                 <form className="row g-2" id="changePassword" onSubmit={changePassword}>
                     <div className="col-md-6">
-                        <label className="form-label" htmlFor="form3Example1cg">
+                        <label className="form-label" htmlFor="changePasswordInput">
                             Current Password
                         </label>
                         <input
                             type="password"
-                            id="form3Example1cg"
+                            id="changePasswordInput"
                             name="currentPassword"
                             className="form-control form-control-lg col-md-2 col-lg-4 "
                         />
                     </div>
                     <div className="col-md-6">
-                        <label className="form-label" htmlFor="form3Example1cg">
+                        <label className="form-label" htmlFor="inputNewPassword">
                             New Password
                         </label>
                         <input
                             type="password"
-                            id="form3Example1cg"
+                            id="inputNewPassword"
                             name="newPassword"
                             className="form-control form-control-lg col-md-2"
                         />

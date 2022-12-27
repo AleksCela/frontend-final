@@ -15,13 +15,13 @@ export default function UpdateTrip() {
         );
         const data = await response.json();
         if (data.length > 0) {
-            const trip = {
+            const tripCoordinates = {
                 lat: data[0].lat,
                 lon: data[0].lon,
             };
-            setCoordinates(trip);
+            setCoordinates(tripCoordinates);
             const responseCountry = await fetch(
-                `https://nominatim.openstreetmap.org/reverse?lat=${trip.lat}&lon=${trip.lon}&format=json`
+                `https://nominatim.openstreetmap.org/reverse?lat=${tripCoordinates.lat}&lon=${tripCoordinates.lon}&format=json`
             );
             const dataCountry = await responseCountry.json();
             setCountry(dataCountry.address.country);
@@ -56,15 +56,11 @@ export default function UpdateTrip() {
         }
     };
 
-    function returnToTrips() {
-        navigate("/trips");
-    }
-
     return (
         <div className="bg-light w-100 h-100 position-absolute d-inline-block ">
             <Navbar />
             <div className="container-md bg-white rounded-3 my-5 p-4">
-                <h3 className="text-center">Update trip {trip_id} </h3>
+                <h3 className="text-center">Update Trip</h3>
                 <p className="alert alert-danger col-md-4 offset-lg-4 text-center">
                     You must fill all mandatory fields!
                 </p>
@@ -179,7 +175,7 @@ export default function UpdateTrip() {
                         />
                     </div>
                     <div className="col-12 d-flex justify-content-center">
-                        <button onClick={returnToTrips} type="submit" className="btn btn-cancel btn-outline-dark m-3 p-2">
+                        <button onClick={() => navigate("/trips")} type="submit" className="btn btn-cancel btn-outline-dark m-3 p-2">
                             Cancel
                         </button>
                         <button type="submit" className="btn btn-dark m-3 p-2 col-md-2">

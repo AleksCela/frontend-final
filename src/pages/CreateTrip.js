@@ -7,8 +7,9 @@ export default function CreateTrip() {
     const [coordinates, setCoordinates] = useState({});
     const [destinationDirect, setDestinationDirect] = useState([]);
     const [country, setCountry] = useState("");
+    const navigate = useNavigate();
 
-    useEffect(() => {                                                          //if not logged in => redirects to login
+    useEffect(() => {                                                            //if not logged in => redirects to login
         const id_logged = localStorage.getItem("user_id");
         if (!id_logged) {
             navigate("/login");
@@ -22,20 +23,19 @@ export default function CreateTrip() {
         );
         const data = await response.json();
         if (data.length > 0) {
-            const trip = {
+            const tripCoordinates = {
                 lat: data[0].lat,
                 lon: data[0].lon,
             };
-            setCoordinates(trip);
+            setCoordinates(tripCoordinates);
             const responseCountry = await fetch(
-                `https://nominatim.openstreetmap.org/reverse?lat=${trip.lat}&lon=${trip.lon}&format=json`
+                `https://nominatim.openstreetmap.org/reverse?lat=${tripCoordinates.lat}&lon=${tripCoordinates.lon}&format=json`
             );
             const dataCountry = await responseCountry.json();
             setCountry(dataCountry.address.country);
         }
     };
 
-    const navigate = useNavigate();
     const createTrip = async (event) => {
         event.preventDefault();
         const form = event.target;
@@ -63,10 +63,6 @@ export default function CreateTrip() {
             window.alert("Trip could not be created!");
         }
     };
-
-    function returnToTrips() {
-        navigate("/trips");
-    }
 
     return (
         <div className="bg-light w-100 h-100 position-absolute d-inline-block ">
@@ -188,7 +184,7 @@ export default function CreateTrip() {
                     </div>
                     <div className="col-12 d-flex justify-content-center">
                         <button
-                            onClick={returnToTrips}
+                            onClick={() => navigate("/trips")}
                             type="submit"
                             className="btn btn-outline-dark m-3 p-2"
                         >
@@ -200,7 +196,7 @@ export default function CreateTrip() {
                     </div>
                 </form>
                 <Footer />
-            </div>
-        </div>
+            </div >
+        </div >
     );
 }

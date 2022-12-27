@@ -4,20 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { Rating } from "@mui/material";
 import { useEffect, useState } from "react";
-import "./style.css";
 
 export default function TripsMap() {
     const navigate = useNavigate();
     const position = [51.505, -0.09];
-
     const [trips, setTrips] = useState([]);
-
-    const getTrips = async () => {
-        const user_id = localStorage.getItem("user_id");
-        const response = await fetch(`http://localhost:4000/api/trips/${user_id}`);
-        const data = await response.json();
-        setTrips(data);
-    };
 
     useEffect(() => {                                                //if not logged in => redirects to login , otherwise gets the trips
         const id_logged = localStorage.getItem("user_id");
@@ -27,6 +18,13 @@ export default function TripsMap() {
             getTrips();
         }
     }, []);
+
+    const getTrips = async () => {
+        const user_id = localStorage.getItem("user_id");
+        const response = await fetch(`http://localhost:4000/api/trips/${user_id}`);
+        const data = await response.json();
+        setTrips(data);
+    };
 
     return (
         <div>
@@ -52,7 +50,7 @@ export default function TripsMap() {
                     />
                     {trips.map(
                         ({ id, date, destination, description, days, rating, latitude, longitude, country }, index) => (
-                            <Marker key={index} position={[latitude, longitude]} eventHandlers={{mouseover: (event) => event.target.openPopup()}}>
+                            <Marker key={index} position={[latitude, longitude]} eventHandlers={{ mouseover: (event) => event.target.openPopup() }}>
                                 <Popup>
                                     <div className="frame">
                                         <div className="flex-container">

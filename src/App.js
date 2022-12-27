@@ -6,6 +6,7 @@ import UserProfile from "./pages/UserProfile.js";
 import CreateTrip from "./pages/CreateTrip.js";
 import UpdateTrip from "./pages/UpdateTrip.js";
 import TripsMap from "./pages/TripsMap.js";
+import './style.css';
 
 function App() {
   return (

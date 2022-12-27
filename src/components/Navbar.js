@@ -36,8 +36,9 @@ export default function Navbar() {
                         </li>
                         <li>
                             <span className="nav-item" onClick={() => {
-                                    localStorage.clear();
-                                    navigate("/login"); }}>
+                                localStorage.clear();
+                                navigate("/login");
+                            }}>
                                 <i className="bi bi-box-arrow-right"></i>
                             </span>
                         </li>

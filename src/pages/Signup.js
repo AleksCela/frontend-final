@@ -5,7 +5,6 @@ import Footer from "../components/Footer.js";
 
 export default function Signup() {
     const navigate = useNavigate();
-
     const [error, setError] = useState(null);
 
     useEffect(() => {
@@ -16,7 +15,7 @@ export default function Signup() {
         }
     }, []);
 
-    const handleSubmit = async (event) => {
+    const createAccount = async (event) => {
         event.preventDefault();
         const form = event.target;
         const formData = new FormData(form);
@@ -30,9 +29,7 @@ export default function Signup() {
             },
             body: JSON.stringify(values),
         });
-
         const data = await response.json();
-
         if (response.ok) {
             localStorage.setItem("email", email);
             navigate("/login");
@@ -47,7 +44,7 @@ export default function Signup() {
             <NavbarSignupLogin />
             <div className="container-md bg-white rounded-3 my-5 p-4">
                 <h1 className="text-center">Sign Up</h1>
-                <form onSubmit={handleSubmit} className="form-horizontal row g-2" id="registrationForm">
+                <form onSubmit={createAccount} className="form-horizontal row g-2" id="registrationForm">
                     <div className="col-10 offset-1 col-lg-4 offset-lg-4 my-4 div-wrapper">
                         <label className="form-label" htmlFor="emailInput">
                             Email

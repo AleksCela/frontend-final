@@ -5,8 +5,16 @@ import Footer from "../components/Footer.js";
 
 export default function Login() {
     const [error, setError] = useState(null);
-
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const email_logged = localStorage.getItem("email");
+        if (email_logged) {
+            navigate("/trips");
+        } else {
+        }
+    }, []);
+
     const authentication = async (event) => {
         event.preventDefault();
         const form = event.target;
@@ -31,14 +39,6 @@ export default function Login() {
             localStorage.clear();
         }
     };
-
-    useEffect(() => {
-        const email_logged = localStorage.getItem("email");
-        if (email_logged) {
-            navigate("/trips");
-        } else {
-        }
-    }, []);
 
     return (
         <div className="bg-light w-100 h-100 position-absolute d-inline-block ">
@@ -74,7 +74,7 @@ export default function Login() {
                             title="Password must contain 5-20 characters and at least one number and one special character."
                         />
                         {error ? (
-                            <p id="invalidPassword" className="invalidPassword">
+                            <p id="invalidPassword" className="invalidPassword ">
                                 Email and password do not match!
                             </p>
                         ) : null}

@@ -7,13 +7,7 @@ import Footer from "../components/Footer";
 export default function Trips() {
     const navigate = useNavigate();
     const [trips, setTrips] = useState([]);
-
-    const getTrips = async () => {
-        const user_id = localStorage.getItem("user_id");
-        const response = await fetch(`http://localhost:4000/api/trips/${user_id}`);
-        const data = await response.json();
-        setTrips(data);
-    };
+    let userTripId = 0;
 
     useEffect(() => {                                                    //if not logged in => redirects to login , otherwise gets the trips
         const id_logged = localStorage.getItem("user_id");
@@ -23,6 +17,13 @@ export default function Trips() {
             getTrips();
         }
     }, []);
+
+    const getTrips = async () => {
+        const user_id = localStorage.getItem("user_id");
+        const response = await fetch(`http://localhost:4000/api/trips/${user_id}`);
+        const data = await response.json();
+        setTrips(data);
+    };
 
     function updateTrip(event) {
         const update_id = event.currentTarget.id;
@@ -40,9 +41,10 @@ export default function Trips() {
 
     function renderTrips() {
         return trips.map(({ id, date, destination, description, days, rating }) => {
+            userTripId++;
             return (
                 <tr key={id}>
-                    <td>{id}</td>
+                    <td>{userTripId}</td>
                     <td>{date}</td>
                     <td>{destination}</td>
                     <td>{days}</td>
@@ -60,10 +62,6 @@ export default function Trips() {
                 </tr>
             );
         });
-    }
-
-    function navigateToTrip() {
-        navigate("/create-trips");
     }
 
     return (
@@ -84,7 +82,7 @@ export default function Trips() {
             <div className="container bg-white mt-5 p-4">
                 <div className="row">
                     <h2 className="col"> My trips</h2>
-                    <button onClick={navigateToTrip} className="col-md-2 btn btn-danger">
+                    <button onClick={() => navigate("/create-trips")} className="col-md-2 btn btn-danger">
                         Create trip!
                     </button>
                 </div>
