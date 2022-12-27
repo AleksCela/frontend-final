@@ -29,19 +29,20 @@ export default function UpdateTrip() {
     };
 
     const navigate = useNavigate();
-    const trip_id = window.localStorage.getItem("trip_id");
+    const tripId = window.localStorage.getItem("tripId");
+    const userTripId = window.localStorage.getItem("userTripId");
     const UpdateTrip = async (event) => {
         event.preventDefault();
         const form = event.target;
         const formData = new FormData(form);
-        const user_id = Number(window.localStorage.getItem("user_id"));
+        const userId = Number(window.localStorage.getItem("userId"));
         const date = formData.get("date");
         const destination = formData.get("destination");
         const description = formData.get("description");
         const days = formData.get("days");
         const rating = formData.get("rating");
-        const values = { date, destination, description, days, rating, country, user_id, trip_id };
-        const response = await fetch(`http://localhost:4000/api/trips/${trip_id}`, {
+        const values = { date, destination, description, days, rating, country, userId, tripId };
+        const response = await fetch(`http://localhost:4000/api/trips/${tripId}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -60,7 +61,7 @@ export default function UpdateTrip() {
         <div className="bg-light w-100 h-100 position-absolute d-inline-block ">
             <Navbar />
             <div className="container-md bg-white rounded-3 my-5 p-4">
-                <h3 className="text-center">Update Trip</h3>
+                <h3 className="text-center">Update Trip {userTripId}</h3>
                 <p className="alert alert-danger col-md-4 offset-lg-4 text-center">
                     You must fill all mandatory fields!
                 </p>
