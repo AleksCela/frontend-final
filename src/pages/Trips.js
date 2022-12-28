@@ -10,8 +10,8 @@ export default function Trips() {
     let userTripId = 0;
 
     useEffect(() => {                                                    //if not logged in => redirects to login , otherwise gets the trips
-        const idLogged = localStorage.getItem("userId");
-        if (!idLogged) {
+        const id_logged = localStorage.getItem("user_id");
+        if (!id_logged) {
             navigate("/login");
         } else {
             getTrips();
@@ -19,17 +19,17 @@ export default function Trips() {
     }, []);
 
     const getTrips = async () => {
-        const userId = localStorage.getItem("userId");
-        const response = await fetch(`http://localhost:4000/api/trips/${userId}`);
+        const user_id = localStorage.getItem("user_id");
+        const response = await fetch(`http://localhost:4000/api/trips/${user_id}`);
         const data = await response.json();
         setTrips(data);
     };
 
     function updateTrip(event) {
-        const tripUpdatedId = event.currentTarget.id;
-        const userTripUpdatedId = event.currentTarget.className;
-        window.localStorage.setItem("userTripId", userTripUpdatedId);
-        window.localStorage.setItem("tripId", tripUpdatedId);
+        const update_id = event.currentTarget.id;
+        window.localStorage.setItem("trip_id", update_id);
+        // const userTripUpdatedId = event.currentTarget.className;
+        // window.localStorage.setItem("userTripId", userTripUpdatedId);
         navigate("/update-trip");
     }
 
@@ -52,7 +52,7 @@ export default function Trips() {
                     <td>{days}</td>
                     <td>{rating}</td>
                     <td>
-                        <a onClick={updateTrip} id={id} className={userTripId}>
+                        <a onClick={updateTrip} id={id} >
                             <i className="bi bi-pencil"></i>
                         </a>
                     </td>

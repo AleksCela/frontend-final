@@ -8,8 +8,8 @@ export default function Login() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const emailLogged = localStorage.getItem("email");
-        if (emailLogged) {
+        const email_logged = localStorage.getItem("email");
+        if (email_logged) {
             navigate("/trips");
         } else {
         }
@@ -32,7 +32,7 @@ export default function Login() {
         const data = await response.json();
         if (response.ok) {
             localStorage.setItem("email", email);
-            localStorage.setItem("userId", data.id);
+            localStorage.setItem("user_id", data.id);
             navigate("/trips");
         } else {
             setError(data);

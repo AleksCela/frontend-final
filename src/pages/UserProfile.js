@@ -8,7 +8,7 @@ export default function UserProfile() {
     const [email, setEmail] = useState(localStorage.getItem("email"));
 
     async function deleteAccount() {
-        const id = localStorage.getItem("userId");
+        const id = localStorage.getItem("user_id");
         await fetch(`http://localhost:4000/api/user/${id}`, {
             method: "DELETE",
         });
@@ -18,7 +18,7 @@ export default function UserProfile() {
 
     async function changeEmail(event) {
         event.preventDefault();
-        const id = localStorage.getItem("userId");
+        const id = localStorage.getItem("user_id");
         const form = event.target;
         const formData = new FormData(form);
         const newEmail = formData.get("email");
@@ -41,7 +41,7 @@ export default function UserProfile() {
     }
     async function changePassword(event) {
         event.preventDefault();
-        const id = localStorage.getItem("userId");
+        const id = localStorage.getItem("user_id");
         const form = event.target;
         const formData = new FormData(form);
         const currentPassword = formData.get("currentPassword");
