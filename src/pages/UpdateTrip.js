@@ -7,6 +7,8 @@ export default function UpdateTrip() {
     const [coordinates, setCoordinates] = useState({});
     const [destinationDirect, setDestinationDirect] = useState([]);
     const [country, setCountry] = useState("");
+    const navigate = useNavigate();
+    const trip_id = window.localStorage.getItem("trip_id");
 
     const handleDestination = async (event) => {
         setDestinationDirect(event.target.value);
@@ -28,9 +30,6 @@ export default function UpdateTrip() {
         }
     };
 
-    const navigate = useNavigate();
-    const trip_id = window.localStorage.getItem("trip_id");
-    // const userTripId = window.localStorage.getItem("userTripId");
     const updateTrip = async (event) => {
         event.preventDefault();
         const form = event.target;
@@ -41,7 +40,10 @@ export default function UpdateTrip() {
         const description = formData.get("description");
         const days = formData.get("days");
         const rating = formData.get("rating");
-        const values = { date, destination, description, days, rating, country, user_id, trip_id };
+        const latitude = formData.get("lat");
+        const longitude = formData.get("lon");
+        const values = { date, destination, description, days, rating, country, latitude, longitude, user_id, trip_id };
+        console.log(values);
         const response = await fetch(`http://localhost:4000/api/trips/${trip_id}`, {
             method: "PUT",
             headers: {
@@ -54,6 +56,7 @@ export default function UpdateTrip() {
             navigate("/trips");
         } else {
             window.alert("Couldn't update the trip!")
+            console.log(response.message);
         }
     };
 
