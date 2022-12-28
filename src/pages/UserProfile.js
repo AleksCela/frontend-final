@@ -97,6 +97,7 @@ export default function UserProfile() {
                             id="changePasswordInput"
                             name="currentPassword"
                             className="form-control form-control-lg col-md-2 col-lg-4 "
+                            required
                         />
                     </div>
                     <div className="col-md-6">
@@ -108,6 +109,7 @@ export default function UserProfile() {
                             id="inputNewPassword"
                             name="newPassword"
                             className="form-control form-control-lg col-md-2"
+                            required
                         />
                     </div>
                     <div className="d-md-flex justify-content-md-end">
