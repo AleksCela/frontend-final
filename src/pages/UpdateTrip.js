@@ -31,7 +31,7 @@ export default function UpdateTrip() {
     const navigate = useNavigate();
     const trip_id = window.localStorage.getItem("trip_id");
     // const userTripId = window.localStorage.getItem("userTripId");
-    const UpdateTrip = async (event) => {
+    const updateTrip = async (event) => {
         event.preventDefault();
         const form = event.target;
         const formData = new FormData(form);
@@ -65,7 +65,7 @@ export default function UpdateTrip() {
                 <p className="alert alert-danger col-md-4 offset-lg-4 text-center">
                     You must fill all mandatory fields!
                 </p>
-                <form onSubmit={UpdateTrip} className="row g-3">
+                <form onSubmit={updateTrip} className="row g-3">
                     <div className="col-md-4 col-lg-4 offset-lg-4 ">
                         <label htmlFor="inputDate" className="form-label">
                             Date*
