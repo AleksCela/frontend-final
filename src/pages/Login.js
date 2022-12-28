@@ -7,14 +7,6 @@ export default function Login() {
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const email_logged = localStorage.getItem("email");
-        if (email_logged) {
-            navigate("/trips");
-        } else {
-        }
-    }, []);
-
     const authentication = async (event) => {
         event.preventDefault();
         const form = event.target;
@@ -40,6 +32,14 @@ export default function Login() {
         }
     };
 
+    useEffect(() => {
+        const emailLogged = localStorage.getItem("email");
+        if (emailLogged) {
+            navigate("/trips");
+        } else {
+        }
+    }, []);
+    
     return (
         <div className="bg-light w-100 h-100 position-absolute d-inline-block ">
             <NavbarSignupLogin />

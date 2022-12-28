@@ -10,8 +10,8 @@ export default function CreateTrip() {
     const navigate = useNavigate();
 
     useEffect(() => {                                                            //if not logged in => redirects to login
-        const id_logged = localStorage.getItem("user_id");
-        if (!id_logged) {
+        const idLogged = localStorage.getItem("user_id");
+        if (!idLogged) {
             navigate("/login");
         }
     }, []);

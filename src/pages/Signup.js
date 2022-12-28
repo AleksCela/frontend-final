@@ -7,14 +7,6 @@ export default function Signup() {
     const navigate = useNavigate();
     const [error, setError] = useState(null);
 
-    useEffect(() => {
-        const emailLogged = localStorage.getItem("email");
-        if (emailLogged) {
-            navigate("/trips");
-        } else {
-        }
-    }, []);
-
     const createAccount = async (event) => {
         event.preventDefault();
         const form = event.target;
@@ -38,6 +30,14 @@ export default function Signup() {
             localStorage.clear();
         }
     };
+
+    useEffect(() => {
+        const emailLogged = localStorage.getItem("email");
+        if (emailLogged) {
+            navigate("/trips");
+        } else {
+        }
+    }, []);
 
     return (
         <div className="bg-light w-100 h-100 position-absolute d-inline-block ">

@@ -9,6 +9,7 @@ export default function UpdateTrip() {
     const [country, setCountry] = useState("");
     const navigate = useNavigate();
     const trip_id = window.localStorage.getItem("trip_id");
+    const userTripId = window.localStorage.getItem("userTripId")
 
     const handleDestination = async (event) => {
         setDestinationDirect(event.target.value);
@@ -64,7 +65,7 @@ export default function UpdateTrip() {
         <div className="bg-light w-100 h-100 position-absolute d-inline-block ">
             <Navbar />
             <div className="container-md bg-white rounded-3 my-5 p-4">
-                <h3 className="text-center">Update Trip </h3>
+                <h3 className="text-center">Update Trip {userTripId}</h3>
                 <p className="alert alert-danger col-md-4 offset-lg-4 text-center">
                     You must fill all mandatory fields!
                 </p>

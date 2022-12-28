@@ -9,15 +9,6 @@ export default function Trips() {
     const [trips, setTrips] = useState([]);
     let userTripId = 0;
 
-    useEffect(() => {                                                    //if not logged in => redirects to login , otherwise gets the trips
-        const id_logged = localStorage.getItem("user_id");
-        if (!id_logged) {
-            navigate("/login");
-        } else {
-            getTrips();
-        }
-    }, []);
-
     const getTrips = async () => {
         const user_id = localStorage.getItem("user_id");
         const response = await fetch(`http://localhost:4000/api/trips/${user_id}`);
@@ -28,8 +19,8 @@ export default function Trips() {
     function updateTrip(event) {
         const update_id = event.currentTarget.id;
         window.localStorage.setItem("trip_id", update_id);
-        // const userTripUpdatedId = event.currentTarget.className;
-        // window.localStorage.setItem("userTripId", userTripUpdatedId);
+        const userTripUpdatedId = event.currentTarget.className;
+        window.localStorage.setItem("userTripId", userTripUpdatedId);
         navigate("/update-trip");
     }
 
@@ -41,6 +32,15 @@ export default function Trips() {
         getTrips();
     }
 
+    useEffect(() => {                                                    //if not logged in => redirects to login , otherwise gets the trips
+        const idLogged = localStorage.getItem("user_id");
+        if (!idLogged) {
+            navigate("/login");
+        } else {
+            getTrips();
+        }
+    }, []);
+    
     function renderTrips() {
         return trips.map(({ id, date, destination, description, days, rating }) => {
             userTripId++;
@@ -52,7 +52,7 @@ export default function Trips() {
                     <td>{days}</td>
                     <td>{rating}</td>
                     <td>
-                        <a onClick={updateTrip} id={id} >
+                        <a onClick={updateTrip} id={id} className={userTripId}>
                             <i className="bi bi-pencil"></i>
                         </a>
                     </td>
