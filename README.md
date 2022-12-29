@@ -33,7 +33,7 @@ To use the software, you should install all its packages by using
 ```
 npm install
 ```
-
+You should also have the backend-final server running.
 ## Authors
 
 Aleks -> AleksCela
