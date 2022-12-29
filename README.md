@@ -37,6 +37,6 @@ npm install
 You should also have the backend-final server running.
 ## Authors
 
-Aleks -> AleksCela
+Aleks Cela-> AleksCela
 Fjoralba Zerka -> fjoralba29
-Eleni -> emr-tech
+Eleni Morava -> emr-tech
