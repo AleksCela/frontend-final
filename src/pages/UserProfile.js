@@ -1,7 +1,7 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 export default function UserProfile() {
     const navigate = useNavigate();
@@ -61,6 +61,13 @@ export default function UserProfile() {
         }
         form.reset();
     }
+
+    useEffect(() => {                                                            //if not logged in => redirects to login
+        const idLogged = localStorage.getItem("user_id");
+        if (!idLogged) {
+            navigate("/login");
+        }
+    }, []);
 
     return (
         <div className="back bg-light vh-100">

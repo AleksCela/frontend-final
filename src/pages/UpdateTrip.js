@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar.js";
 import Footer from "../components/Footer.js";
 
@@ -60,6 +60,13 @@ export default function UpdateTrip() {
             console.log(response.message);
         }
     };
+
+    useEffect(() => {                                                            //if not logged in => redirects to login
+        const idLogged = localStorage.getItem("user_id");
+        if (!idLogged) {
+            navigate("/login");
+        }
+    }, []);
 
     return (
         <div className="bg-light w-100 h-100 position-absolute d-inline-block ">
