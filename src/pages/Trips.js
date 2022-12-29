@@ -40,7 +40,7 @@ export default function Trips() {
             getTrips();
         }
     }, []);
-    
+
     function renderTrips() {
         return trips.map(({ id, date, destination, description, days, rating }) => {
             userTripId++;

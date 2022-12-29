@@ -23,7 +23,7 @@ export default function Signup() {
         });
         const data = await response.json();
         if (response.ok) {
-            localStorage.setItem("email", email);
+            alert("Account Created!")
             navigate("/login");
         } else {
             setError(data);
@@ -32,11 +32,10 @@ export default function Signup() {
     };
 
     useEffect(() => {
-        const emailLogged = localStorage.getItem("email");
-        if (emailLogged) {
-            navigate("/trips");
-        } else {
-        }
+        const idLogged = localStorage.getItem("user_id");
+        if (idLogged) {
+            navigate("/login");
+        } else { }
     }, []);
 
     return (

@@ -33,13 +33,12 @@ export default function Login() {
     };
 
     useEffect(() => {
-        const emailLogged = localStorage.getItem("email");
-        if (emailLogged) {
+        const idLogged = localStorage.getItem("user_id");
+        if (idLogged) {
             navigate("/trips");
-        } else {
         }
     }, []);
-    
+
     return (
         <div className="bg-light w-100 h-100 position-absolute d-inline-block ">
             <NavbarSignupLogin />
