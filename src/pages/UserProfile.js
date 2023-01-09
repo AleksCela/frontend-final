@@ -21,8 +21,7 @@ export default function UserProfile() {
         const id = localStorage.getItem("user_id");
         const form = event.target;
         const formData = new FormData(form);
-        const newEmail = formData.get("email");
-        setEmail(newEmail);
+        const newEmail = formData.get("email"); 
         const values = { newEmail, id };
         const response = await fetch(`http://localhost:4000/api/update-email`, {
             method: "PUT",
@@ -34,6 +33,7 @@ export default function UserProfile() {
         if (response.ok) {
             window.alert("Email Updated!");
             localStorage.setItem("email", newEmail);
+            setEmail(newEmail);
         } else {
             window.alert("Could not update email!");
         }
