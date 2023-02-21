@@ -11,6 +11,12 @@ export default function UpdateTrip() {
     const trip_id = window.localStorage.getItem("trip_id");
     const userTripId = window.localStorage.getItem("userTripId")
 
+    useEffect(async () => {                                                            //if not logged in => redirects to login
+        const response = await fetch (`http://localhost:4000/api/trips/${trip_id}`);
+        const data = await response.json();
+        console.log(data); 
+    }, []);
+
     const handleDestination = async (event) => {
         setDestinationDirect(event.target.value);
         const response = await fetch(
@@ -76,6 +82,7 @@ export default function UpdateTrip() {
                 <p className="alert alert-danger col-md-4 offset-lg-4 text-center">
                     You must fill all mandatory fields!
                 </p>
+                
                 <form onSubmit={updateTrip} className="row g-3">
                     <div className="col-md-4 col-lg-4 offset-lg-4 ">
                         <label htmlFor="inputDate" className="form-label">

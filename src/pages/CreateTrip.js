@@ -92,7 +92,7 @@ export default function CreateTrip() {
                         </label>
                         <input
                             type="text"
-                            onChange={handleDestination}
+                            onBlur={handleDestination}
                             name="destination"
                             className="form-control"
                             id="input-destination"
